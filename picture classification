@@ -1,0 +1,21 @@
+import csv
+import numpy as np
+import os 
+import shutil
+
+path1="F:/谷歌下载/train/data/"
+path2="F:/谷歌下载/train/new1/"
+
+with open("F:/谷歌下载/train/train.csv") as csvfile:
+    reader = csv.reader(csvfile)
+    rows= [row for row in reader]
+#print (rows)
+data=np.array(rows)
+#print("out0=",type(data),data.shape)
+#print("out1=",type)
+for i in range(1,4569):
+    imgpath=os.path.join(path1,data[i][0])
+    for j in range(1,6):
+        if data[i][1]==str(j):
+            newpath=os.path.join(path2,str(j))+'/'
+            shutil.copy(imgpath,newpath)
