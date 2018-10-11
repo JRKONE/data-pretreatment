@@ -1,0 +1,20 @@
+import os
+import cv2
+import sys
+import numpy as np
+from PIL import Image
+
+import glob
+ 
+path = "F:/谷歌下载/train/new1/5"
+print(path)
+ 
+for filename in os.listdir(path):
+    a=os.path.splitext(filename)[1] 
+    if a!= '.jpg':
+
+        filepath=r"F:/谷歌下载/train/new1/5/" + filename
+        newname=os.path.splitext(filepath)[0]+'.jpg'
+        print(newname)
+        Image.open(filepath).convert('RGB').save(newname)
+        os.remove(filepath)
