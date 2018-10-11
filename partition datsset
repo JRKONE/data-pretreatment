@@ -1,0 +1,17 @@
+import os
+import shutil
+
+rootpath="F:/谷歌下载/train/new"
+newpath="F:/谷歌下载/train/new/val"
+l1=os.listdir(rootpath)
+for i in l1:
+    path=os.path.join(rootpath,i)
+    l2=os.listdir(path)
+    newp=newpath+"/"+i
+    if not os.path.exists(newp):
+        os.mkdir(newp)
+    a=int(0.3*len(l2))
+    for b in range(a):
+        path1=os.path.join(path,l2[b])
+        path2=os.path.join(newp,l2[b])
+        shutil.move(path1,path2)
