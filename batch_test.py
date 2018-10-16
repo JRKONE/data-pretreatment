@@ -78,7 +78,7 @@ def main(_):
         logits = tf.nn.top_k(logits, 1)
         config = tf.ConfigProto()
         config.gpu_options.allow_growth = True
-        rootpath="/home/math10/fl/yunshibie/test"
+        rootpath=your_path
         test_ids=os.listdir(rootpath)
         tot = len(test_ids)
        
@@ -110,7 +110,7 @@ def main(_):
               predictions = sess.run(logits, feed_dict = {tensor_input : images}).indices
               label.extend(predictions)
      
-    csvpath="/home/math10/fl/yunshibie/"+'test.csv'
+    csvpath="your_path"+'test.csv'
     dataframe = pd.DataFrame({'filenames':imn,'labels':label})
     dataframe.to_csv(csvpath,sep=',')    
 if __name__ == '__main__':
